@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>All Penguins</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    </script>
+    <script>
+      $(document).ready(function(){
+
+      })
+    </script>
+  </head>
+  <body>
+    <h1> Penguins </h1>
+    <a href='/penguins/new'> Add a New Penguin</a>
+    <table class=table>
+        <tr>
+            <th> Name </th>
+            <th> Species </th>
+            <th> Age </th>
+            <th> Location </th>
+            <th> Action </th>
+        </tr>
+        <% for(var i = 0; i < penguins.length; i++) { %>
+        
+        <tr>
+            <td><%= penguins[i].name %></td>
+            <td><%= penguins[i].species %> </td>
+            <td><%= penguins[i].age %> </td>
+            <td><%= penguins[i].location %> </td>
+            <td><a href='/penguins/<%=penguins[i]._id%>'>Show</a> | <a href='/penguins/<%=penguins[i]._id%>/edit'>Edit</a> | <form action='/penguins/<%=penguins[i]._id%>/destroy' method='POST'>
+                                                                                                                                            <input type='submit' value='delete'>
+                                                                                                                                            </form></td>
+        </tr>
+
+        <% } %>
+    </table>
+  </body>
+</html>
